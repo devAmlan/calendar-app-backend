@@ -1,12 +1,6 @@
 const router = require("express").Router();
-const { OAuth2Client } = require("google-auth-library");
-const config = require("../../config/config");
+const service = require("./auth.service");
 
-router.post("/login/google", async (req, res, next) => {
-  try {
-    const { googleClientId } = config;
-    const client = new OAuth2Client();
-  } catch (error) {}
-});
+router.post("/login/google", service.postLoginGoogle);
 
 module.exports = router;
